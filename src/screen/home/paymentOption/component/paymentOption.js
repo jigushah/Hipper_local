@@ -2,11 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView,
     TextInput ,Image ,TouchableHighlight} from 'react-native';
 import NavBar from '../../../navigationComponent/navigationBar';
-import CardView from '../../cardView/cardView';
+import CardViewHeader from '../../cardViewHeader/cardViewHeader';
 import Constant from '../../../../services/apiConstant'
 
 
 export default class paymentOption extends React.Component {
+  onClose = () => {
+    alert("hiii");
+  }
       render() {
         return (
           <View style={{flex:1}}>
@@ -14,7 +17,12 @@ export default class paymentOption extends React.Component {
               <Image resizeMode="contain" style={{height:Constant.screenHeight,width:Constant.screenWidth}} source={require("../../../../../assets/images/Asset_25xxxhdpi.png")}/>
               </View>
             <NavBar/>
-            <CardView />
+            <View style={{padding:15}}>
+              <CardViewHeader title="Payment Option" onClose={this.onClose}/>
+              <View style={{padding: 15, backgroundColor: 'rgb(255, 237, 237)'}}>
+              <Text>Payment</Text>
+            </View>
+            </View>
           </View>
         );
     }
