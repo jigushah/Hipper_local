@@ -10,6 +10,8 @@ import preExperience from '../screen/home/prevExperience/prevExperience'
 import genExperience from '../screen/home/generatedExperience/generatedExperience'
 import bookExperience from '../screen/home/bookExperience/bookExperience'
 import paymentOption from '../screen/home/paymentOption/component/paymentOption'
+import experiencing_1 from '../screen/home/experiencing_1/experiencing_1'
+
 
 export default createRouter(() => ({
     login: () => login,
@@ -19,6 +21,7 @@ export default createRouter(() => ({
     preExperience: () => preExperience,
     genExperience: () => genExperience,
     bookExperience: () => bookExperience,
-    paymentOption: () => paymentOption
+    paymentOption: () => paymentOption,
+    experiencing_1: () => experiencing_1
 
 }),{ignoreSerializableWarnings: true});
