@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Accordion from 'react-native-collapsible/Accordion';
-import { AppRegistry, StyleSheet, Text, View, Image, AsyncStorage } from 'react-native';
+import { AppRegistry, TouchableHighlight, StyleSheet, Text, View, Image, AsyncStorage } from 'react-native';
 
 const listImg = require('../../../../assets/images/calzone.jpg');
 const callImg = require('../../../../assets/images/calling.png')
@@ -19,9 +19,13 @@ export default class cardComponent extends Component {
         <Image style={{height:200,width:300,marginRight:10,marginLeft:10,alignSelf:'center' }} source={listImg}/>
           </View>
         <View style={{marginTop:20, flexDirection:'row',justifyContent:'space-between'}}>
-          <Image resizeMode={'contain'} style={{height:50, width:'30%', alignSelf:'flex-start'}} source={scanImg}/>
+        <TouchableHighlight style={{height:50, width:'30%', alignSelf:'flex-end'}} onPress={() => this.props.onScanClick()}>
+          <Image resizeMode={'contain'} style={{height:50, width:'100%', alignSelf:'flex-start'}} source={scanImg}/>
+        </TouchableHighlight>
           <Image resizeMode={'contain'} style={{height:50, width:'30%', alignSelf:'center'}} source={callImg}/>
-          <Image resizeMode={'contain'} style={{height:50, width:'30%', alignSelf:'flex-end'}} source={mapImg}/>
+          <TouchableHighlight style={{height:50, width:'30%', alignSelf:'flex-end'}} onPress={() => this.props.onMapClick()}>
+            <Image resizeMode={'contain'} style={{height:50, width:'100%'}} source={mapImg}/>
+          </TouchableHighlight>
         </View>
       </View>
     );
