@@ -1,13 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput ,Image, ScrollView} from 'react-native';
-import RateThisPlace from './component/rateThisPlace';
+import RateYourExperience from './component/rateYourExperience';
 import QuickQuestion from './component/quickQuestion';
 import YesNoPopUp from './component/yesNoPopUp';
+import TakeAPicWith from './component/takeApicWith'
 import OpenQuestion from './component/openQuestion'
+import ShareWith from './component/shareWith'
 import NavBar from '../../navigationComponent/navigationBar'
 
 
-export default class MainList extends React.Component {
+export default class MainLis2 extends React.Component {
     render() {
         return (
             <View style={{flex:1}}>
@@ -17,14 +19,12 @@ export default class MainList extends React.Component {
                 <NavBar/>
                 <ScrollView>
                 <View style={{paddingBottom:50}}>
-                <OpenQuestion headerTitle="this is an open question"
-                              question="Lorem Ipsum is simply dummy text of the printing and typesetting industry?"
+
+                <RateYourExperience headerTitle="Rate Your Experience" />
+                <TakeAPicWith headerTitle="Take a Pic With"
+                              title="Lorem Ipsum is simply dummy text of the printing and typesetting industry"
                 />
-                <RateThisPlace headerTitle="Rate This Place" />
-                <QuickQuestion headerTitle="Quick question"
-                               question='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-                />
-                <YesNoPopUp headerTitle="Are You Sure?"/>
+                <ShareWith headerTitle="Share With"/>
                 </View>
                 </ScrollView>
             </View>
