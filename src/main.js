@@ -14,7 +14,7 @@ export default class main extends React.Component {
                 <StatusBar backgroundColor="blue" hidden={true}/>
                 <Provider store={store}>
                     <NavigationProvider router={Router} context={navigationContext}>
-                        <StackNavigation initialRoute={Router.getRoute('experiencing_1')}
+                        <StackNavigation initialRoute={Router.getRoute('signUp')}
                                          defaultRouteConfig={{
                                              navigationBar: {
                                                  visible: false,
