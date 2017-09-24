@@ -20,22 +20,13 @@ const minusImg = require('../../../../assets/images/minus_green.png');
 
 
 export default class AccordionView extends Component {
-  constructor(props) {
-      super(props);
+  constructor() {
+      super();
       this.state = {
-          isMap: false
           activeSectionIndex: null
       };
   }
-onMapClick = () => {
-  this.setState({
-    isMap: true
-  })
-}
-onScanClick = () => {
-  alert("Scan Clicked");
-}
-onChange = index => {
+  onChange = index => {
     this.setState(
       {
       activeSectionIndex : index
@@ -58,9 +49,9 @@ onChange = index => {
     );
   }
 
-  _renderContent = (section) => {
+  _renderContent(section) {
     return (
-      <CardComponent content={section.content} onMapClick={this.onMapClick} onScanClick={this.onScanClick} />
+      <CardComponent content={section.content}  />
     );
   }
 
