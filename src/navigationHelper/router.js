@@ -14,6 +14,7 @@ import experiencingNow from '../screen/home/experiencingNow/experiencingNow'
 import mainList from '../screen/home/PopUp/mainList'
 import mainList2 from '../screen/home/PopUp/mainList2'
 import mainList3 from '../screen/home/PopUp/mainList3'
+import inviteFriend from '../screen/home/InviteFriend/InviteFriend'
 
 export default createRouter(() => ({
     login: () => login,
@@ -28,5 +29,6 @@ export default createRouter(() => ({
     mainList: () => mainList,
     mainList2: () => mainList2,
     mainList3: () => mainList3,
+    inviteFriend:() => inviteFriend
 
 }),{ignoreSerializableWarnings: true});

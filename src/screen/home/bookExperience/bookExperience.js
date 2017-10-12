@@ -8,13 +8,11 @@ import Constant from '../../../services/apiConstant'
 export default class bookExperience extends React.Component {
     constructor(props) {
         super(props);
-        debugger;
         this.state = {
             personCount: 1
         };
     }
     personMinus = () =>{
-        debugger;
         if(this.state.personCount>1){
             this.setState({personCount:this.state.personCount-1})
         }
@@ -155,14 +153,15 @@ export default class bookExperience extends React.Component {
                                 <Text style={{alignSelf:'center',justifyContent:'center',
                                     fontFamily:'NunitoBoldItalic',
                                     fontSize:18,
-                                    color:'red'}}>{experience.price*this.state.personCount +'nis'}</Text>
+                                    color:'red'}}>{experience.price*this.state.personCount +' nis'}</Text>
                             </View>
                             <View style={{backgroundColor:'red',height:2}}/>
                             <View>
                                 <View style={{borderRadius:15}}>
-                                    <View style={{backgroundColor:'red',paddingTop:10,paddingBottom:10,borderRadius:5
+                                    <View style={{backgroundColor:'rgb(68,176,166)',marginTop:10,paddingTop:10,paddingBottom:10,borderRadius:5
                                     }}>
-                                        <Text>Pay Now</Text>
+                                        <Text style={{color:'white',textAlign:'center',fontFamily:'NunitoBoldItalic',
+                                        fontSize:18,}}>Pay Now</Text>
                                     </View>
                                 </View>
                             </View>
