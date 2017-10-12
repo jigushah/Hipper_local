@@ -4,7 +4,7 @@ import NavBar from '../../navigationComponent/navigationBar';
 import Constant from '../../../services/apiConstant';
 import AccordionView from '../AccordionView/AccordionView';
 
-export default class experiencing_1 extends React.Component {
+export default class experiencingNow extends React.Component {
       render() {
         return (
           <View style={{flex:1}}>

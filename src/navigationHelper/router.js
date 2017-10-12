@@ -10,7 +10,7 @@ import preExperience from '../screen/home/prevExperience/prevExperience'
 import genExperience from '../screen/home/generatedExperience/generatedExperience'
 import bookExperience from '../screen/home/bookExperience/bookExperience'
 import paymentOption from '../screen/home/paymentOption/component/paymentOption'
-import experiencing_1 from '../screen/home/experiencing_1/experiencing_1'
+import experiencingNow from '../screen/home/experiencingNow/experiencingNow'
 import mainList from '../screen/home/PopUp/mainList'
 import mainList2 from '../screen/home/PopUp/mainList2'
 import mainList3 from '../screen/home/PopUp/mainList3'
@@ -24,7 +24,7 @@ export default createRouter(() => ({
     genExperience: () => genExperience,
     bookExperience: () => bookExperience,
     paymentOption: () => paymentOption,
-    experiencing_1: () => experiencing_1,
+    experiencingNow: () => experiencingNow,
     mainList: () => mainList,
     mainList2: () => mainList2,
     mainList3: () => mainList3,

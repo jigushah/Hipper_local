@@ -8,17 +8,22 @@ import Constant from '../../../services/apiConstant'
 export default class bookExperience extends React.Component {
     constructor(props) {
         super(props);
+        debugger;
         this.state = {
-            personCount: 0
+            personCount: 1
         };
     }
-    personD = () =>{
+    personMinus = () =>{
         debugger;
-        if(this.state.personCount>0){
+        if(this.state.personCount>1){
             this.setState({personCount:this.state.personCount-1})
         }
     };
+    personPlus = () => {
+       this.setState({personCount:this.state.personCount+1})
+    }
     render() {
+      const {experience} = this.props
         return (
             <View style={{flex:1}}>
                 <NavBar/>
@@ -42,7 +47,7 @@ export default class bookExperience extends React.Component {
                             fontFamily:'NunitoBoldItalic',
                             fontSize:18,
                             color:'red'}}>
-                            Israeli Summer Time
+                            {experience.name}
                         </Text>
                     </View>
                     <View style={{height:Constant.screenHeight*.45,width:Constant.screenWidth}}>
@@ -71,7 +76,7 @@ export default class bookExperience extends React.Component {
                                     <Image style={{height:20,width:20,alignSelf:'center'}}
                                            resizeMode={'contain'}
                                            source={require('../../../../assets/images/tag.png')}/>
-                                    <Text>{72}nis</Text>
+                                    <Text>{experience.price}nis</Text>
                                 </View>
                                 <View style={{paddingTop:5,
                                     paddingLeft:10,
@@ -89,7 +94,7 @@ export default class bookExperience extends React.Component {
                                     <Image style={{height:20,width:20,alignSelf:'center'}}
                                            resizeMode={'contain'}
                                            source={require('../../../../assets/images/distance.png')}/>
-                                    <Text>{2.48}km</Text>
+                                    <Text>{experience.distance}km</Text>
                                 </View>
                             </View>
 
@@ -107,7 +112,7 @@ export default class bookExperience extends React.Component {
                             <View style={{flexDirection:'row',justifyContent:'center'}}>
                                 <TouchableHighlight
                                     underlayColor="transparent"
-                                    onPress={()=>{debugger;}}
+                                    onPress={()=>{this.personMinus()}}
                                     style={{width:30,height:30,justifyContent:'center',
                                         shadowColor:'rgb(121,121,121)',backgroundColor:'white',
                                         shadowOpacity:0.3,
@@ -124,7 +129,7 @@ export default class bookExperience extends React.Component {
                                 </View>
                                 <TouchableHighlight
                                     underlayColor="transparent"
-                                    onPress={()=>{debugger}}
+                                    onPress={()=>{this.personPlus()}}
                                     style={{width:30,height:30,justifyContent:'center',backgroundColor:'white',
                                         shadowColor:'rgb(121,121,121)',
                                         shadowOpacity:0.3,
@@ -150,7 +155,7 @@ export default class bookExperience extends React.Component {
                                 <Text style={{alignSelf:'center',justifyContent:'center',
                                     fontFamily:'NunitoBoldItalic',
                                     fontSize:18,
-                                    color:'red'}}>147NIS</Text>
+                                    color:'red'}}>{experience.price*this.state.personCount +'nis'}</Text>
                             </View>
                             <View style={{backgroundColor:'red',height:2}}/>
                             <View>
