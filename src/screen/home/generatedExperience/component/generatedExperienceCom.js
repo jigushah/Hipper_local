@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput ,Image} from 'react-native';
+import { StyleSheet, Text, View, TextInput ,Image ,TouchableHighlight} from 'react-native';
 import StarRating from 'react-native-star-rating';
 import Constant from '../../../../services/apiConstant'
 
@@ -80,7 +80,7 @@ export default class generatedExperienceCom extends React.Component {
                             <Text>{this.props.distance}km</Text>
                         </View>
                     </View>
-                    <View style={{flex:1}}>
+                    <TouchableHighlight onPress={()=>this.props.onPressBooking(this.props.object)} style={{flex:1}}>
                         <View style={{paddingTop:12,
                             paddingLeft:0,
                             paddingBottom:12,
@@ -96,7 +96,7 @@ export default class generatedExperienceCom extends React.Component {
                         >
                             <Text style={{color:'white',fontFamily:'NunitoBoldItalic',fontSize:17}}>Book your Experience</Text>
                         </View>
-                    </View>
+                    </TouchableHighlight>
                 </View>
             </View>
         );

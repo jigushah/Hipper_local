@@ -5,7 +5,7 @@ import NavBar from '../../navigationComponent/navigationBar';
 import { connect } from 'react-redux';
 import {getTourToken} from '../../../actions/tourAction'
 const images = [
-{image1 :require('../../../../assets/images/image1.jpg')},
+{image1:require('../../../../assets/images/image1.jpg')},
 {image2:require('../../../../assets/images/image2.jpg')},
 {image3:require('../../../../assets/images/image3.jpg')},
 ];
@@ -14,9 +14,14 @@ class generatedExperience extends React.Component {
   componentWillMount(){
     this.props.getTourToken();
   }
-    render() {
+  //this.props.navigation.push("bookExperience");
 
-        return (
+  onPressBooking = (obj) => {
+    this.props.navigator.push('bookExperience',{experience:obj});
+  }
+
+  render() {
+      return (
             <View style={{flex:1}}>
                 <NavBar/>
                 <View style={{
@@ -33,14 +38,15 @@ class generatedExperience extends React.Component {
                 <ScrollView style={{flex:1}}>
                 {
                   this.props.generatedTourList.map((obj,index) => {
-                    return <GeneratedExperienceCom title={obj.tourCode}
+                    return <GeneratedExperienceCom title={obj.name}
                                             imagePic={require('../../../../assets/images/image1.jpg')}
                                             cost={obj.price} distance={obj.distance}
                                             key={index}
+                                            object={obj}
+                                            onPressBooking = {this.onPressBooking}
                                             />
                   })
                 }
-
                 </ScrollView>
             </View>
         );
