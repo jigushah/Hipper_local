@@ -8,7 +8,7 @@ module.exports = {
 
     //API Constant
     baseUrl: 'http://35.198.70.235:8090/',
-
+    signUp: "register/customer/email/signup",
     //tour api
 
     generateTour:"tours/generator",

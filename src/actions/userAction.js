@@ -35,3 +35,13 @@ console.log("/*/*/*/*/*/*/*/*/*/*/",res.data);
     };
 
 };
+
+export const signUpUser = newUser => () => {
+
+  const url = APIConstant.baseUrl + APIConstant.signUp;
+  return axios.post(url, newUser, {})
+  .then(res => { console.log(res.data);
+    return Promise.resolve(res.data)
+  })
+  .catch(err => Promise.reject(err));
+};

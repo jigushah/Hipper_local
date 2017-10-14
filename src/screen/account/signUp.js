@@ -3,9 +3,19 @@ import { StyleSheet, Text, View ,Image ,TextInput ,TouchableHighlight ,ScrollVie
 import NavigationBar from '../navigationComponent/navigationBar';
 import Textbox from './component/textBox'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
-import { Entypo,MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo,MaterialCommunityIcons } from '@expo/vector-icons'
+import { signUpUser } from '../../actions/userAction'
+import { connect } from 'react-redux';
 
-export default class singup extends React.Component {
+
+class signUp extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      email:'jinalshah123@gmail.com',
+      password:'123456'
+    }
+  }
   render() {
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -25,20 +35,17 @@ export default class singup extends React.Component {
             </View>
             <View>
               <View>
-                <Textbox placeHolder={"Email"} textChanged={"dyr"}/>
-                <Textbox placeHolder={"Type a Password"}/>
+                <Textbox placeHolder={"Email"}
+                />
+                <Textbox placeHolder={"Type a Password"}
+                />
                 <Textbox placeHolder={"Type password again"}/>
                 <View style={{
                   height:1,backgroundColor:'white',
                     marginTop:5,marginBottom:5,
                     marginLeft:20,marginRight:20}}/>
-                <Textbox placeHolder={"Provider Name"}/>
-                <Textbox placeHolder={"Country"}/>
-                <Textbox placeHolder={"City"}/>
-                <View style={{flexDirection:'row'}}>
-                  <View style={{flex:6}}>
-                <Textbox placeHolder={"Address(GOOGLE Location)"}/>
-                  </View>
+                                <View style={{flexDirection:'row'}}>
+
                   <View style={{
                       flex:2,paddingRight:20,
                       paddingTop:5,paddingBottom:5,
@@ -46,27 +53,38 @@ export default class singup extends React.Component {
                   <View style={{flex:1,backgroundColor:'white',borderRadius:5,}}/>
                   </View>
                 </View>
-                <Textbox placeHolder={"Provider Telephone"}/>
+
                 <View style={{
                     height:1,backgroundColor:'white',
                     marginTop:5,marginBottom:5,
                     marginLeft:20,marginRight:20}}/>
-                <Textbox placeHolder={"Contact Name"}/>
-                <Textbox placeHolder={"Contact Phone(Optional)"}/>
-                <Textbox placeHolder={"Secondary Email(Optional)"}/>
+
               </View>
             </View>
-            <View style={{
+            <TouchableHighlight onPress={() => {
+                let newUser = {
+                  email: this.state.email,
+                  password: this.state.password
+                }
+                this.props.signUpUser(newUser)
+                 .then(res => {
+                   console.log(res.data)
+                 })
+                 .catch(err => {
+                   debugger;
+                 })
+              }}>
+              <View style={{
                 padding:10,flexDirection:'row',
                 backgroundColor:'rgb(119,206,28)',
                 alignItems:'center',
                 justifyContent:'center',borderRadius:0,
                 marginLeft:20,marginRight:20,marginTop:5,marginBottom:5}}>
-              <Text style={{marginLeft:10,color:'white',fontSize:20}}>Sign UP</Text>
-            </View>
+                <Text style={{marginLeft:10,color:'white',fontSize:20}}>Sign UP</Text>
+              </View>
+            </TouchableHighlight>
             <View style={{flexDirection:'row',justifyContent:'space-between',padding:20}}>
               <TouchableHighlight onPress={() => {
-                  //alert("Sign In press");
                   this.navigateToPage('signUp')
               }} underlayColor="transparent" style={{}}>
                 <View>
@@ -97,3 +115,14 @@ const styles = StyleSheet.create({
 
   },
 });
+const mapStateToProps = (state) => {
+          return{
+
+          }
+        };
+
+const mapActionToProps = ({
+  signUpUser,
+});
+
+export default connect(mapStateToProps, mapActionToProps)(signUp);
